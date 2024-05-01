@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.IBoardDao">
+	<select id="getAllList" resultType="com.example.demo.dto.Board">
+		select * from board_tbl
+	</select>
+	
+	<select id="getBoard" resultType="com.example.demo.dto.Board">
+		select * from board_tbl where bno = #{bno}
+	</select>
+	
+	<insert id="regBoard">
+		insert into board_tbl values (0, #{board.title}, #{board.content}, #{board.writer})
+	</insert>
+	
+	<delete id="deleteBoard">
+		delete from board_tbl where bno = #{bno}
+	</delete>
+</mapper>
